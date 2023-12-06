@@ -12,7 +12,7 @@
             $this->pinjamModel = new pinjamModel();
         }
 
-        public function data_pinjam() {
+        public function pinjam_alat() {
 
             $data = [
                 'title' => 'Data Peminjaman',
