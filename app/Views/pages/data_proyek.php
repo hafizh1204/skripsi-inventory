@@ -87,7 +87,7 @@
                     <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 1v16M1 9h16"/>
                     </svg>
-                    Tambah Alat
+                    Tambah Proyek Baru
                 </a>
             </div>
         
@@ -153,12 +153,13 @@
                             <div class="flex flex-row items-center justify-center gap-x-2">
 
                             <a href="/proyek/editProyek/<?= $proyekdjm['id_proyek']; ?>" class="bg-blue-600 hover:bg-blue-800 text-white text-sm font-semibold px-4 py-2 rounded-md">Ubah</a>
+                            <a href="/proyek/hapusProyek/<?= $proyekdjm['id_proyek']; ?>" class="bg-red-600 hover:bg-red-800 text-white text-sm font-semibold px-4 py-2 rounded-md">Hapus</a>
 
-                                <form action="/proyek/<?= $proyekdjm['id_proyek']; ?>" method="post" class="inline">
+                                <!-- <form action="/proyek/hapusProyek/<?= $proyekdjm['id_proyek']; ?>" method="post" class="inline">
                                     <input type="hidden" name="_method" value="delete">
 
-                                    <button class="bg-red-600 hover:bg-red-800 text-white text-sm font-semibold px-4 py-2 rounded-md" onclick="return confirm('Yakin ingin hapus data ini?')">Hapus</button>
-                                </form>
+                                    <button class="bg-red-600 hover:bg-red-800 text-white text-sm font-semibold px-4 py-2 rounded-md" >Hapus</button>
+                                </form> -->
 
                                 <a href="/proyek/<?= $proyekdjm['id_proyek']; ?>" class="bg-slate-400 hover:bg-slate-800 text-white text-sm font-semibold px-4 py-2 rounded-md">Info</a>
 

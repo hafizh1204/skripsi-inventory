@@ -57,9 +57,9 @@
             return redirect()->to('proyek/');
         }
 
-        public function hapusProyek($id_proyek){
+        public function hapusProyek($id){
 
-            $this->proyekModel->delete($id_proyek);
+            $this->proyekModel->delete($id);
 
             // session()->setFlashdata('sukses-hapus-data', 'Data berhasil dihapus');
 

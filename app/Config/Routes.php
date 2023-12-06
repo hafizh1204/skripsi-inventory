@@ -13,7 +13,7 @@ $routes->get('/pinjam/pinjam_alat', 'Pinjam::pinjam_alat');
 $routes->get('/proyek', 'Proyek::data_proyek');
 $routes->get('/proyek/(:any)', 'Proyek::detail/$1');
 $routes->get('/proyek/insertProyek', 'Proyek::insertProyek');
-$routes->delete('/proyek/(:any)', 'Proyek::hapusProyek/$1');
+$routes->delete('/proyek/hapusProyek/(:num)', 'Proyek::hapusProyek/$1');
 
 
 $routes->get('/alat', 'Alat::data_alat');
