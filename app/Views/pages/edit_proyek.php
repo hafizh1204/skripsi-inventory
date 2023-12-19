@@ -34,16 +34,16 @@
         <section class="bg-white dark:bg-gray-900">
             <div class="py-8 px-4 max-w-2xl lg:py-10">
                 
-                <form action="/proyek/updateProyek/<?= $alat['id']; ?>" method="post">
+                <form action="/proyek/updateProyek" method="post">
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                        
+                        <input type="hidden" value="<?= $alat['id_proyek']; ?>" name="id_proyek">
                         <div class="w-full">
                             <label for="Nama_po" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Proyek</label>
-                            <input type="text" name="nama_po" id="namaPo" class="input input-bordered input-primary bg-gray-50 w-full" placeholder="ketik disini" value="<?= old('nama_alat'); ?>">
+                            <input type="text" name="nama_po" id="namaPo" class="input input-bordered input-primary bg-gray-50 w-full" placeholder="ketik disini" value="<?= $alat['nama_po']; ?>">
                         </div>
                         <div class="w-full">
                             <label for="area" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Area Proyek</label>
-                            <input type="text" name="area" id="area" class="input input-bordered input-primary bg-gray-50 w-full" placeholder="ketik disini" value="<?= old('area'); ?>">
+                            <input type="text" name="area" id="area" class="input input-bordered input-primary bg-gray-50 w-full" placeholder="ketik disini" value="<?= $alat['area']; ?>">
                         </div>
                         
                         <div class="w-full">
@@ -54,7 +54,7 @@
                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                     </svg>
                                 </div>
-                                <input datepicker type="text" name="tanggal_mulai" id="tanggal_mulai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 " placeholder="Tanggal/Bulan/Tahun">
+                                <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 " value="<?= $alat['tanggal_mulai']; ?>">
                             </div>
 
                         </div>
@@ -66,7 +66,7 @@
                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                     </svg>
                                 </div>
-                                <input datepicker type="text" name="tanggal_selesai" id="tanggal_selesai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 " placeholder="Tanggal/Bulan/Tahun">
+                                <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 " value="<?= $alat['tanggal_selesai']; ?>">
                             </div>
 
                         </div>
@@ -74,7 +74,7 @@
 
                         <div class="sm:col-span-2">
                             <label for="foto_lokasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Foto Lokasi</label>
-                            <input type="text" name="foto_lokasi" id="foto_lokasi" placeholder="ketik disini untuk gambar (sementara)" class="input input-bordered input-primary bg-gray-50 w-full" value="<?= old('area'); ?>">
+                            <input type="text" name="foto_lokasi" id="foto_lokasi" placeholder="ketik disini untuk gambar (sementara)" class="input input-bordered input-primary bg-gray-50 w-full" value="<?= $alat['foto_lokasi']; ?>">
                         </div>
 
                         

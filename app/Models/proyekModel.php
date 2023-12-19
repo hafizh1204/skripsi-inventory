@@ -5,8 +5,8 @@
     use CodeIgniter\Model;
 
     class proyekModel extends model {
+        protected $primaryKey = 'id_proyek';
         protected $table = 'proyek';
-        protected $id = 'id_proyek';
         // protected $useTimestamps = true;
 
         protected $allowedFields = ['nama_po', 'area', 'foto_lokasi', 'tanggal_mulai', 'tanggal_selesai'];

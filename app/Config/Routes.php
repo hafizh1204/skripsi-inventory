@@ -11,9 +11,12 @@ $routes->get('/pages', 'Pages::index');
 
 $routes->get('/pinjam/pinjam_alat', 'Pinjam::pinjam_alat');
 $routes->get('/proyek', 'Proyek::data_proyek');
-$routes->get('/proyek/(:any)', 'Proyek::detail/$1');
+$routes->get('/proyek/(:num)', 'Proyek::detail/$1');
 $routes->get('/proyek/insertProyek', 'Proyek::insertProyek');
-$routes->delete('/proyek/hapusProyek/(:num)', 'Proyek::hapusProyek/$1');
+$routes->post('/proyek/simpanInsertProyek', 'Proyek::simpanInsertProyek');
+$routes->get('/proyek/hapusProyek/(:num)', 'Proyek::hapusProyek/$1');
+$routes->get('/proyek/editProyek/(:num)', 'Proyek::editProyek/$1');
+$routes->post('/proyek/updateProyek', 'Proyek::updateProyek');
 
 
 $routes->get('/alat', 'Alat::data_alat');
@@ -24,4 +27,4 @@ $routes->delete('/alat/(:any)', 'Alat::hapusAlat/$1');
 $routes->post('alat/simpanAlat', 'Alat::simpanAlat');
 $routes->get('/alat/(:any)', 'Alat::detail/$1');
 
-$routes->setAutoRoute(true);
+// $routes->setAutoRoute(true);

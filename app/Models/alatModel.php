@@ -5,10 +5,10 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class alatModel extends model {
-
+    protected $primaryKey = 'id';
     protected $table = 'alat';
     protected $useTimestamps = true;
-    protected $allowedFields = ['kode_alat', 'nama_alat', 'brand', 'kondisi', 'gambar', 'keterangan'];
+    protected $allowedFields = ['kode_alat', 'nama_alat', 'brand', 'kondisi', 'gambar', 'status', 'keterangan'];
 
     public function getAlat($kode_alat = false) {
         
@@ -26,6 +26,10 @@ class alatModel extends model {
         }
 
         return $this->where(['id' => $id])->first();
+    }
+
+    public function getAlatByStat($stat) {
+        return $this->where(['status' => $stat])->findAll();
     }
 
 }

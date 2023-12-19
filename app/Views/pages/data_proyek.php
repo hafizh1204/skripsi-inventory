@@ -83,7 +83,7 @@
             <?php endif; ?>
 
             <div class="w-full h-fit flex flex-row justify-end">
-                <a href="/Proyek/insertProyek" class="bg-lime-600 text-white py-2 px-5 flex flex-row items-center gap-x-3 rounded-lg shadow-md hover:bg-lime-800 hover:shadow-none">
+                <a href="/proyek/insertProyek" class="bg-lime-600 text-white py-2 px-5 flex flex-row items-center gap-x-3 rounded-lg shadow-md hover:bg-lime-800 hover:shadow-none">
                     <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 1v16M1 9h16"/>
                     </svg>
@@ -153,6 +153,7 @@
                             <div class="flex flex-row items-center justify-center gap-x-2">
 
                             <a href="/proyek/editProyek/<?= $proyekdjm['id_proyek']; ?>" class="bg-blue-600 hover:bg-blue-800 text-white text-sm font-semibold px-4 py-2 rounded-md">Ubah</a>
+                            
                             <a href="/proyek/hapusProyek/<?= $proyekdjm['id_proyek']; ?>" class="bg-red-600 hover:bg-red-800 text-white text-sm font-semibold px-4 py-2 rounded-md">Hapus</a>
 
                                 <!-- <form action="/proyek/hapusProyek/<?= $proyekdjm['id_proyek']; ?>" method="post" class="inline">

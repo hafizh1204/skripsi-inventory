@@ -44,8 +44,9 @@
         }
 
         public function simpanInsertProyek() {
+            // dd($this->request->getVar('tanggal_mulai'));
 
-            $this->proyekModel->save ([
+            $this->proyekModel->save([
                 'nama_po' => $this->request->getVar('nama_po'),
                 'area' => $this->request->getVar('area'),
                 'foto_lokasi' => $this->request->getVar('foto_lokasi'),
@@ -57,9 +58,9 @@
             return redirect()->to('proyek/');
         }
 
-        public function hapusProyek($id){
+        public function hapusProyek($id_proyek){
 
-            $this->proyekModel->delete($id);
+            $this->proyekModel->delete($id_proyek);
 
             // session()->setFlashdata('sukses-hapus-data', 'Data berhasil dihapus');
 
@@ -77,6 +78,20 @@
 
             return view('/pages/edit_proyek', $data);
 
+        }
+
+        public function updateProyek() {
+
+            $this->proyekModel->save([
+                'id_proyek' => $this->request->getVar('id_proyek'),
+                'nama_po' => $this->request->getVar('nama_po'),
+                'area' => $this->request->getVar('area'),
+                'foto_lokasi' => $this->request->getVar('foto_lokasi'),
+                'tanggal_mulai' => $this->request->getVar('tanggal_mulai'),
+                'tanggal_selesai' => $this->request->getVar('tanggal_selesai')
+            ]);
+
+            return redirect()->to('/proyek');
         }
 
 
