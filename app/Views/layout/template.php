@@ -84,6 +84,34 @@
 <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<!-- Javascript -->
+<script>
+    function hapusPinjam($id) {
+        $result = confirm('Apakah anda yakin?');
+
+        if($result) {
+            window.location = "<?php echo site_url("/pinjam/hapusPinjam") ?>/" + $id;
+        }
+    }
+
+    // fungsi pemanggilan id / modal
+    function inputPeminjam($id) {
+        // alert($id);
+        // $.ajax({
+        //     url: "/ + $id",
+        //     type: "get",
+        //     success: function(hasil) {
+
+        //     }
+        // });
+        $('#idAlat').val($id);
+    }
+</script>
+
 </body>
 </html>
 

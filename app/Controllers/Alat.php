@@ -81,7 +81,8 @@
 
 
 
-            $this->alatModel->save ([
+            $this->alatModel->save([
+                'status' => 1,
                 'kode_alat' => $this->request->getVar('kode_alat'),
                 'nama_alat' => $this->request->getVar('nama_alat'),
                 'brand' => $this->request->getVar('brand'),

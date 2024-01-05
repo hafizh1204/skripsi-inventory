@@ -7,8 +7,8 @@
     class pinjamModel extends model {
         protected $primaryKey = 'id_peminjam';
         protected $table = 'peminjaman';
-        protected $useTimestamps = true;
-        protected $allowedFields = ['id_alat', 'id_proyek', 'nama_peminjam', 'lokasi'];
+        // protected $useTimestamps = true;
+        protected $allowedFields = ['id_alat', 'id_proyek'];
 
         public function getPinjam ($id_peminjaman = false) {
             if ($id_peminjaman == false) {
@@ -19,14 +19,18 @@
         }
 
 
-        public function getAllpeminjaman() {
+        public function getAllpeminjaman($id = false) {
             // $builder = $this->db->table('peminjaman');
             // $builder->join('peminjaman', 'peminjaman.id_peminjam = alat.kode_alat');
             // $query = $builder->get();
 
             // return $query->getResult();
 
-            return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->findAll();
+            if ($id == false){
+                return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->findAll();
+            }
+
+            return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->where(['id_peminjam' => $id])->first();
         }
     }
 
