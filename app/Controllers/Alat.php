@@ -69,6 +69,15 @@
                     ]
                 ]
 
+                // 'gambar' => [
+                //     'rules' => 'max_size[gambar,1024]|is_image[sampul]|mime_in[image,image/jpg,image/jpeg,image/png]',
+                //     'error' => [
+                //         'max_size' => 'ukuran file gambar terlalu besar',
+                //         'is_image' => 'file yang dipilih bukan file gambar',
+                //         'mime_in' => 'file yang dipilih bukan file gambar'
+                //     ]
+                // ]
+
             ])) {
                 $validation = \Config\Services::validation();
 
@@ -79,6 +88,19 @@
 
             }
 
+            $fileGambar = $this->request->getFile('gambar');
+
+            if ($fileGambar->getError() == 4) {
+
+                $namaGambar = 'default_picture.png';
+
+            } else {
+
+                $namaGambar = $fileGambar->getRandomName();
+                $fileGambar->move('img', $namaGambar);
+                
+            }
+
 
 
             $this->alatModel->save([
@@ -87,7 +109,7 @@
                 'nama_alat' => $this->request->getVar('nama_alat'),
                 'brand' => $this->request->getVar('brand'),
                 'kondisi' => $this->request->getVar('kondisi'),
-                'gambar' => $this->request->getVar('gambar'),
+                'gambar' => $namaGambar,
                 'keterangan' => $this->request->getVar('keterangan')
             ]);
 
@@ -101,6 +123,18 @@
 
         public function hapusAlat($id){
             session();
+            
+            // cari gambar base id
+            $alat = $this->alatModel->find($id);
+
+            // jika file gambar default
+            if ($alat['gambar'] != 'default_picture.png') {
+
+                // hapus gambar
+                unlink('img/'. $alat['gambar']);
+            }
+
+
 
             $this->alatModel->delete($id);
 
@@ -161,9 +195,18 @@
                 // return redirect()->to('alat/inser_alat')->withInput()->with('validation', $validation);
 
                 return redirect()->back()->withInput()->with('validation', $validation);
-
-
             }
+
+            // $fileGambar = $this->request->getFile('gambar');
+
+            // if ($fileGambar->getError() == 4) {
+            //     $namaGambar = $this->request->getVar('gambarLama');
+            // } else {
+            //     $namaGambar = $fileGambar->getRandomName();
+            //     $fileGambar->move('img', $namaGambar);
+
+            //     unlink('img/'. $this->request->getVar('gambarLama'));
+            // }
 
             $this->alatModel->save ([
                 'id' => $id,

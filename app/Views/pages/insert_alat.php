@@ -66,12 +66,14 @@
                         </div>
                         <div class="sm:col-span-2">
                             <label for="gambar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gambar</label>
-                            <input type="file" name="gambar" id="gambar" class="file-input file-input-bordered file-input-primary min-w-full max-w-xs <?= (session('validation')) ? 'file-input-error border-2' : ''; ?> " placeholder="Pilih Gambar" value="<?= old('gambar'); ?>">
+                            <input type="file" name="gambar" id="gambar" class="file-input file-input-bordered file-input-primary min-w-full max-w-xs <?= (session('validation')) ? 'input-error border-2' : ''; ?>" placeholder="Pilih Gambar" value="<?= old('gambar'); ?>">
+
                             <?php if (session('validation') && session('validation')->hasError('gambar')) :?>
                                 <div class="text-error text-sm">
                                     <?= session('validation')->getError('gambar'); ?>
                                 </div>
                             <?php endif; ?>
+                            
                         </div>
                         
                         <div class="sm:col-span-2">

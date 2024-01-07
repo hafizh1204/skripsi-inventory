@@ -32,6 +32,8 @@ class alatModel extends model {
         return $this->where(['status' => $stat])->findAll();
     }
 
+    // 
+
 }
 
 ?>

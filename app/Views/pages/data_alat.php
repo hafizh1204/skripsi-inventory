@@ -82,7 +82,8 @@
             </div>
             <?php endif; ?>
 
-            <div class="w-full h-fit flex flex-row justify-end">
+            <div class="w-full h-fit flex flex-row justify-end gap-x-5">
+                <input type="text" placeholder="cari alat" class="input input-bordered w-72 h-10" />
                 <a href="/alat/insertAlat" class="bg-lime-600 text-white py-2 px-5 flex flex-row items-center gap-x-3 rounded-lg shadow-md hover:bg-lime-800 hover:shadow-none">
                     <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 1v16M1 9h16"/>

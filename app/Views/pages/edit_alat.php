@@ -34,7 +34,8 @@
         <section class="bg-white dark:bg-gray-900">
             <div class="py-8 px-4 max-w-2xl lg:py-10">
                 
-                <form action="/alat/updateAlat/<?= $alat['id']; ?>" method="post">
+                <form action="/alat/updateAlat/<?= $alat['id']; ?>" method="post" enctype="multipart/form-data">
+                    
                     <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div class="w-full">
                             <label for="Kode Alat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Alat</label>
@@ -66,7 +67,14 @@
                         </div>
                         <div class="sm:col-span-2">
                             <label for="gambar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gambar</label>
-                            <input type="text" name="gambar" id="gambar" class="input input-bordered input-primary bg-gray-50 w-full" placeholder="Temporari Text for Files" value="<?= $alat['gambar']; ?>">
+                            <input type="hidden" name="gambarLama" value="<?= $alat['gambar']; ?>">
+                            <input type="file" name="gambar" id="gambar" class="file-input file-input-bordered file-input-primary min-w-full max-w-xs <?= (session('validation')) ? 'input-error border-2' : ''; ?>" placeholder="<?= $alat['gambar']; ?>" value="<?= $alat['gambar']; ?>" >
+
+                            <?php if (session('validation') && session('validation')->hasError('gambar')) :?>
+                                <div class="text-error text-sm">
+                                    <?= session('validation')->getError('gambar'); ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                         
                         <div class="sm:col-span-2">
