@@ -27,6 +27,7 @@ $routes->get('/alat/editAlat/(:segment)', 'Alat::editAlat/$1');
 $routes->delete('/alat/(:any)', 'Alat::hapusAlat/$1');
 $routes->post('alat/simpanAlat', 'Alat::simpanAlat');
 $routes->post('alat/updateAlat/(:num)', 'Alat::updateAlat/$1');
+$routes->get('hapus/hapusAlat/(:num)', 'Alat::hapusAlat/$1');
 $routes->get('/alat/(:any)', 'Alat::detail/$1');
 
 $routes->get('/pinjam/pinjam_alat', 'Pinjam::pinjam_alat');

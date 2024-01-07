@@ -12,7 +12,7 @@
         </p> -->
 
         
-        <label for="peminjaman" class="form-control w-full flex lg:flex-row md:flex-col py-5 gap-6 items-end justify-between">
+        <label for="peminjaman" class="form-control w-full flex lg:flex-row md:flex-col py-5 gap-6 items-end justify-end">
 
             <!-- <div class="w-2/4 flex flex-row gap-5">
                 <div class="w-2/5">
@@ -36,12 +36,7 @@
             </div> -->
 
 
-            <div class="w-1/3">
-                <div class="label">
-                    <span class="label-text font-medium sr-only">Nama Peminjam</span>
-                </div>
-                <input type="text" placeholder="cari alat" class="input input-bordered w-full" />
-            </div>
+            
 
             
             <!-- <select id="kondisi" name="kondisi" class="select select-primary w-fit bg-gray-50">
@@ -49,11 +44,12 @@
                 <option value="1">ready</option>
             </select> -->
 
+            <input type="text" placeholder="cari alat" class="input input-bordered w-72 h-10" />
             <form action="" method="GET" id="form_id">
-                <div class="form-group">
+                <div class="form-group h-full">
                     <!-- <label for="exampleInputEmail1" class="sr-only">Jurusan</label> -->
                     <!-- gunakan event onchange untuk mengirim data secara otomatis  -->
-                    <select class="form-control select select-primary w-fit bg-gray-50" name="cari" onChange="document.getElementById('form_id').submit();">
+                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="cari" onChange="document.getElementById('form_id').submit();">
                         <option disabled>-- Pilih Dilihat --</option>
                         <option <?php if(!empty($cari)){ echo $cari == '0' ? 'selected':''; } ?> value="0">Dipinjam</option>
                         <option <?php if(!empty($cari)){ echo $cari == '1' ? 'selected':''; } ?> value="1">Ready</option>
