@@ -39,34 +39,26 @@
                         
                         <div class="w-full">
                             <label for="Nama_po" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Proyek</label>
-                            <input type="text" name="nama_po" id="namaPo" class="input input-bordered input-primary bg-gray-50 w-full" placeholder="ketik disini" value="<?= old('nama_alat'); ?>">
+                            <input type="text" name="nama_po" id="namaPo" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 w-full" placeholder="ketik disini" value="<?= old('nama_alat'); ?>">
                         </div>
                         <div class="w-full">
                             <label for="area" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Area Proyek</label>
-                            <input type="text" name="area" id="area" class="input input-bordered input-primary bg-gray-50 w-full" placeholder="ketik disini" value="<?= old('area'); ?>">
+                            <input type="text" name="area" id="area" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 w-full" placeholder="ketik disini" value="<?= old('area'); ?>">
                         </div>
                         
                         <div class="w-full">
                             <label for="tanggal_mulai" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Mulai</label>
                             <div class="relative max-w-sm">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                                    </svg>
-                                </div>
-                                <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 ">
+                                
+                                <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="px-3 text-gray-600 max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full">
                             </div>
 
                         </div>
                         <div class="w-full">
                             <label for="tanggal_selesai" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Selesai</label>
                             <div class="relative max-w-sm">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                                    </svg>
-                                </div>
-                                <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 ">
+                                
+                                <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="px-3 text-gray-600 max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full">
                             </div>
 
                         </div>
@@ -74,7 +66,12 @@
 
                         <div class="sm:col-span-2">
                             <label for="foto_lokasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Foto Lokasi</label>
-                            <input type="text" name="foto_lokasi" id="foto_lokasi" placeholder="ketik disini untuk gambar (sementara)" class="input input-bordered input-primary bg-gray-50 w-full" value="<?= old('area'); ?>">
+
+                            <div class="w-full flex flex-row items-center custom-file ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 rounded-md">
+                                <input class="file-input file-input-[#00A500] h-full w-full max-w-xs" aria-describedby="foto_lokasi" name="foto_lokasi" id="foto_lokasi" type="file">
+
+                                
+                            </div>
                         </div>
 
                         

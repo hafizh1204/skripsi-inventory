@@ -39,7 +39,7 @@
                         <div class="w-full">
                             <label for="Kode Alat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Alat</label>
 
-                            <input type="text" name="kode_alat" id="kodeAlat" class="input input-bordered input-primary bg-gray-50 w-full <?= (session('validation')) ? 'input-error border-2' : ''; ?> " placeholder="DJM-XX-XXX" value="<?= old('kode_alat'); ?>">
+                            <input type="text" name="kode_alat" id="kodeAlat" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full <?= (session('validation')) ? 'border-2 border-red-500' : ''; ?> " placeholder="DJM-XX-XXX" value="<?= old('kode_alat'); ?>">
 
                             <?php if (session('validation') && session('validation')->hasError('kode_alat')) :?>
                                 <div class="text-error text-sm">
@@ -50,38 +50,42 @@
                         </div>
                         <div class="w-full">
                             <label for="Nama Alat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Alat</label>
-                            <input type="text" name="nama_alat" id="namaAlat" class="input input-bordered input-primary bg-gray-50 w-full" placeholder="Ex. Hammer Jack" value="<?= old('nama_alat'); ?>">
+                            <input type="text" name="nama_alat" id="namaAlat" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full" placeholder="Ex. Hammer Jack" value="<?= old('nama_alat'); ?>">
                         </div>
                         <div class="w-full">
                             <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand</label>
-                            <input type="text" name="brand" id="brand" class="input input-bordered input-primary bg-gray-50 w-full" placeholder="Ex. Makita / Bosch" value="<?= old('brand'); ?>">
+                            <input type="text" name="brand" id="brand" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full" placeholder="Ex. Makita / Bosch" value="<?= old('brand'); ?>">
                         </div>
                         <div class=" w-full">
                             <label for="kondisi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kondisi Alat</label>
-                            <select id="kondisi" name="kondisi" class="select select-primary w-full max-w-xs bg-gray-50">
+                            <select id="kondisi" name="kondisi" class="px-3 text-gray-600 max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full">
                                 <option selected="">Kondisi Alat</option>
-                                <option value="Standby">Standby</option>
-                                <option value="Broken">Broken</option>
+                                <option value="Standby" class="text-neutral-800">Standby</option>
+                                <option value="Broken" class="text-neutral-800">Broken</option>
                             </select>
                         </div>
-                        <div class="sm:col-span-2">
-                            <label for="gambar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gambar</label>
-                            <input type="file" name="gambar" id="gambar" class="file-input file-input-bordered file-input-primary min-w-full max-w-xs <?= (session('validation')) ? 'input-error border-2' : ''; ?>" placeholder="Pilih Gambar" value="<?= old('gambar'); ?>">
+                        <div class=" sm:col-span-2 ">
 
-                            <?php if (session('validation') && session('validation')->hasError('gambar')) :?>
-                                <div class="text-error text-sm">
-                                    <?= session('validation')->getError('gambar'); ?>
-                                </div>
-                            <?php endif; ?>
+                            <label for="gambar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gambar</label>
+
+                            <div class="w-full flex flex-row items-center custom-file ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 rounded-md">
+                                <input class="file-input file-input-[#00A500] h-full w-full max-w-xs" aria-describedby="gambar" id="gambar" name="gambar" type="file">
+
+                                
+                            </div>
+
                             
                         </div>
                         
-                        <div class="sm:col-span-2">
+                        <div class="sm:col-span-2 ">
                             <label for="keterangan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keterangan</label>
-                            <textarea id="keterangan" name="keterangan" rows="8" class="block p-2.5 w-full textarea textarea-primary" placeholder="Your description here"></textarea>
+                            <div class="border-2 border-primary-green rounded-md overflow-auto">
+                                <textarea id="keterangan" name="keterangan" class="block p-2.5 w-full h-64 " placeholder="Your description here" style="height: 250px;"></textarea>
+
+                            </div>
                         </div>
 
-                        <button type="submit" class="bg-lime-600 text-white w-fit py-2 px-5 flex flex-row items-center gap-x-3 rounded-lg shadow-md hover:bg-lime-800 hover:shadow-none">
+                        <button type="submit" class="bg-[#00A500] text-white w-fit py-2 px-5 flex flex-row items-center gap-x-3 rounded-lg shadow-md hover:bg-lime-800 hover:shadow-none">
                                 <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 1v16M1 9h16"/>
                                 </svg>
@@ -95,5 +99,7 @@
 
     </div>
 </div>
+
+
 
 <?= $this->endSection(); ?>

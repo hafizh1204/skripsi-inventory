@@ -12,12 +12,17 @@ class Auth extends BaseController
         $this->authModel = new authModel();
     }
 
-    public function login() {
+    public function index() {
         $data = [
             'title' => 'login'
         ];
 
         return view('pages/login', $data);
+    }
+    // pembatalan session $cek
+    public function keluar() {
+        session()->destroy();
+        return redirect()->to('/');
     }
 
     public function cekLogin() {

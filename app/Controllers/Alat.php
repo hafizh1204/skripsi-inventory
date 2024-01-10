@@ -163,7 +163,9 @@
 
 
             // cek kode alat
-            $kodeAlatlama = $this->alatModel->getAlat();
+            $kodeAlatlama = $this->alatModel->getAlat($this->request->getVar('kode_alat'));
+
+            
             
             $cekSamaData=0;
             for ($i=0; $i<count($kodeAlatlama); $i++ ){
@@ -177,7 +179,7 @@
             if ($this->request->getVar('kode_alat') == "") {
                 $rule_judul = 'required';
             } elseif ($cekSamaData > 0) {
-                $rule_judul = "required|is_unique[alat.kode_alat]";
+                $rule_judul = 'required|is_unique[alat.kode_alat]';
             }
 
             if (!$this->validate([
@@ -197,16 +199,16 @@
                 return redirect()->back()->withInput()->with('validation', $validation);
             }
 
-            // $fileGambar = $this->request->getFile('gambar');
+            $fileGambar = $this->request->getFile('gambar');
 
-            // if ($fileGambar->getError() == 4) {
-            //     $namaGambar = $this->request->getVar('gambarLama');
-            // } else {
-            //     $namaGambar = $fileGambar->getRandomName();
-            //     $fileGambar->move('img', $namaGambar);
+            if ($fileGambar->getError() == 4) {
+                $namaGambar = $this->request->getVar('gambarLama');
+            } else {
+                $namaGambar = $fileGambar->getRandomName();
+                $fileGambar->move('img', $namaGambar);
 
-            //     unlink('img/'. $this->request->getVar('gambarLama'));
-            // }
+                unlink('img/'. $this->request->getVar('gambarLama'));
+            }
 
             $this->alatModel->save ([
                 'id' => $id,
@@ -225,6 +227,8 @@
             return redirect()->to('alat/');
 
         }
+
+        
 
 
 

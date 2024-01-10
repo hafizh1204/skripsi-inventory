@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
+    
     <link rel="stylesheet" href="/css/app.css">
     <title><?= $title; ?></title>
 </head>
@@ -36,28 +41,28 @@
                 </button>
                 </div>
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
-                <div class="px-4 py-3" role="none">
-                    <p class="text-sm text-gray-900 dark:text-white" role="none">
-                    Neil Sims
-                    </p>
-                    <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                    neil.sims@flowbite.com
-                    </p>
-                </div>
-                <ul class="py-1" role="none">
-                    <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
-                    </li>
-                    <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
-                    </li>
-                    <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Earnings</a>
-                    </li>
-                    <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
-                    </li>
-                </ul>
+                    <div class="px-4 py-3" role="none">
+                        <p class="text-sm text-gray-900 dark:text-white" role="none">
+                        Neil Sims
+                        </p>
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                        neil.sims@flowbite.com
+                        </p>
+                    </div>
+                    <ul class="py-1" role="none">
+                        <li>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
+                        </li>
+                        <li>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
+                        </li>
+                        <li>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Earnings</a>
+                        </li>
+                        <li>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             </div>
@@ -83,12 +88,44 @@
 
 <!-- footer start -->
 
-<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+<!-- tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- flowbite -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 
+
+
+
+
+<!-- summernote -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script> -->
+
 <!-- Jquery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#keterangan' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+<!-- <script>
+    const gambar = document.querySelector('#gambar');
+    const gambarLabel = document.querySelector('.custom-file-label');
+    
+    gambarLabel.textContent = sampul.files[0].name;
+
+    const fileGambar = new FileReader();
+    fileGambar.readAsDataURL(gambar.files[0]);
+        
+
+</script> -->
+
 
 <!-- Javascript -->
 <script>
@@ -112,6 +149,25 @@
         // });
         $('#idAlat').val($id);
     }
+
+    // $('#summernote','.summernote').summernote({
+    //     placeholder: 'ketikkan keterangan spesifikasi dan lainnya',
+    //     tabsize: 2,
+    //     height: 120,
+    //     toolbar: [
+    //     ['style', ['style']],
+    //     ['font', ['bold', 'underline', 'clear']],
+    //     ['color', ['color']],
+    //     ['para', ['ul', 'ol', 'paragraph']],
+    //     ['table', ['table']],
+    //     ['insert', ['link', 'picture', 'video']],
+    //     ['view', ['fullscreen', 'codeview', 'help']]
+    //     ]
+    // });
+
+    $(function(){
+        CKEDITOR.replace('keterangan');
+    });
 </script>
 
 </body>

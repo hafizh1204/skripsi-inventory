@@ -5,11 +5,12 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Auth:index');
+$routes->get('/', 'Auth::index');
 $routes->get('/pages', 'Pages::index');
 $routes->get('/login', 'Auth::login');
 $routes->post('auth/cekLogin', 'Auth::cekLogin');
 $routes->get('auth/login', 'Auth::login');
+$routes->get('/auth/keluar', 'Auth::keluar');
 
 
 $routes->get('/proyek', 'Proyek::data_proyek');

@@ -80,13 +80,30 @@
 
         }
 
-        public function updateProyek() {
+
+
+        public function updateProyek($id_proyek) {
+
+
+            
+            $filefoto_lokasi = $this->request->getFile('foto_lokasi');
+            dd($filefoto_lokasi);
+
+            // if ($filefoto_lokasi->getError() == 4) {
+            //     $namafotoLokasi = $this->request->getVar('fotolokasiLama');
+            // } else {
+            //     $namafotoLokasi = $filefoto_lokasi->getRandomName();
+            //     $filefoto_lokasi->move('img', $namafotoLokasi);
+
+            //     unlink('img/'. $this->request->getVar('fotolokasiLama'));
+            // }
+
 
             $this->proyekModel->save([
-                'id_proyek' => $this->request->getVar('id_proyek'),
+                'id_proyek' => $id_proyek,
                 'nama_po' => $this->request->getVar('nama_po'),
                 'area' => $this->request->getVar('area'),
-                'foto_lokasi' => $this->request->getVar('foto_lokasi'),
+                'foto_lokasi' => $this->request->getFile('foto_lokasi'),
                 'tanggal_mulai' => $this->request->getVar('tanggal_mulai'),
                 'tanggal_selesai' => $this->request->getVar('tanggal_selesai')
             ]);

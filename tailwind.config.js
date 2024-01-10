@@ -7,12 +7,29 @@ module.exports = {
     "./app/Views/*.php",
     "./node_modules/flowbite/**/*.js"
   ],
+
+
+  // daisyui: {
+  //   themes: [
+  //     {
+  //       myTheme: {
+  //         "primary" : "#00A500"
+  //       }
+  //     }
+  //   ]
+  // }
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary-green': '#00A500',
+      },
+
+    },
   },
   plugins: [
     require('flowbite/plugin'),
-    require("daisyui")
+    require("daisyui"),
+    // require('@tailwindcss/forms')
 
   ],
 }

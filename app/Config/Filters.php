@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Filters\LoginFilter;
+use App\Filters\NoLoginFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -24,6 +26,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'loginFilter' => LoginFilter::class,
+        'noLoginFilter' => NoLoginFilter::class,
     ];
 
     /**
@@ -38,6 +42,18 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+            // pedoman routes
+            'loginFilter' => [
+                'except' => [
+                    '/proyek', '/proyek/*', '/proyek/insertProyek', '/proyek/simpanInsertProyek', '/proyek/hapusProyek/*', '/proyek/editProyek/*', '/proyek/updateProyek', '/alat', '/alat/insertAlat', '/alat/editAlat/*', '/alat/*', 'alat/simpanAlat', 'alat/updateAlat/*', 'hapus/hapusAlat/*', '/alat/*', '/pinjam/pinjam_alat', '/pinjam/pinjam_alat', '/alat/pinjam_alat', '/pinjam/hapusPinjam/*', '/auth/keluar','/pages'
+                ]
+            ],
+
+            'noLoginFilter' => [
+                'except' => [
+                    '/', '/login', 'auth/cekLogin', 'auth/login', '/auth/keluar'
+                ]
+            ],
         ],
         'after' => [
             'toolbar',
