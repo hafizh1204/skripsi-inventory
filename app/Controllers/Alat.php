@@ -124,19 +124,11 @@
         public function hapusAlat($id){
             session();
             
-            // cari gambar base id
-            $alat = $this->alatModel->find($id);
-
-            // jika file gambar default
-            if ($alat['gambar'] != 'default_picture.png') {
-
-                // hapus gambar
-                unlink('img/'. $alat['gambar']);
-            }
+            
 
 
 
-            $this->alatModel->delete($id);
+            $this->alatModel->hapusId($id);
 
             session()->setFlashdata('sukses-hapus-data', 'Data berhasil dihapus');
 
@@ -163,41 +155,41 @@
 
 
             // cek kode alat
-            $kodeAlatlama = $this->alatModel->getAlat($this->request->getVar('kode_alat'));
+            // $kodeAlatlama = $this->alatModel->getAlat($this->request->getVar('kode_alat'));
 
             
             
-            $cekSamaData=0;
-            for ($i=0; $i<count($kodeAlatlama); $i++ ){
-                if ($kodeAlatlama[$i]['kode_alat'] == $this->request->getVar('kode_alat')){
-                    $cekSamaData += 1;
-                }
-            }
-            // dd(count($kodeAlatlama));
-            // dd($this->request->getVar('kode_alat'));
+            // $cekSamaData=0;
+            // for ($i=0; $i<count($kodeAlatlama); $i++ ){
+            //     if ($kodeAlatlama[$i]['kode_alat'] == $this->request->getVar('kode_alat')){
+            //         $cekSamaData += 1;
+            //     }
+            // }
+            // // dd(count($kodeAlatlama));
+            // // dd($this->request->getVar('kode_alat'));
 
-            if ($this->request->getVar('kode_alat') == "") {
-                $rule_judul = 'required';
-            } elseif ($cekSamaData > 0) {
-                $rule_judul = 'required|is_unique[alat.kode_alat]';
-            }
+            // if ($this->request->getVar('kode_alat') == "") {
+            //     $rule_judul = 'required';
+            // } elseif ($cekSamaData > 0) {
+            //     $rule_judul = 'required|is_unique[alat.kode_alat]';
+            // }
 
-            if (!$this->validate([
-                'kode_alat' => [
-                    'rules' => $rule_judul,
-                    'errors' => [
-                        'required' => '{field} kode alat tidak boleh kosong.',
-                        'is_unique' => '{field} kode alat sudah terdaftar.'
-                    ]
-                ]
+            // if (!$this->validate([
+            //     'kode_alat' => [
+            //         'rules' => $rule_judul,
+            //         'errors' => [
+            //             'required' => '{field} kode alat tidak boleh kosong.',
+            //             'is_unique' => '{field} kode alat sudah terdaftar.'
+            //         ]
+            //     ]
 
-            ])) {
-                $validation = \Config\Services::validation();
+            // ])) {
+            //     $validation = \Config\Services::validation();
 
-                // return redirect()->to('alat/inser_alat')->withInput()->with('validation', $validation);
+            //     // return redirect()->to('alat/inser_alat')->withInput()->with('validation', $validation);
 
-                return redirect()->back()->withInput()->with('validation', $validation);
-            }
+            //     return redirect()->back()->withInput()->with('validation', $validation);
+            // }
 
             $fileGambar = $this->request->getFile('gambar');
 
@@ -207,16 +199,16 @@
                 $namaGambar = $fileGambar->getRandomName();
                 $fileGambar->move('img', $namaGambar);
 
-                unlink('img/'. $this->request->getVar('gambarLama'));
+                // unlink('img/'. $this->request->getVar('gambarLama'));
             }
 
             $this->alatModel->save ([
                 'id' => $id,
-                'kode_alat' => $this->request->getVar('kode_alat'),
+                // 'kode_alat' => $this->request->getVar('kode_alat'),
                 'nama_alat' => $this->request->getVar('nama_alat'),
                 'brand' => $this->request->getVar('brand'),
                 'kondisi' => $this->request->getVar('kondisi'),
-                'gambar' => $this->request->getVar('gambar'),
+                'gambar' => $namaGambar,
                 'keterangan' => $this->request->getVar('keterangan')
             ]);
 
@@ -226,6 +218,20 @@
 
             return redirect()->to('alat/');
 
+        }
+
+        public function hapus() {
+            if ($this->request->isAjax()) {
+                $id = $this->request->getVar('id');
+
+                $this->alatModel->delete($id);
+
+                $msg = [
+                    'sukses' => "Data Berhasil Dihapus"
+                ];
+
+                echo json_encode($msg);
+            }
         }
 
         

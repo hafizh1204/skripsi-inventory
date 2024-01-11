@@ -35,12 +35,12 @@
             <div class="py-8 px-4 max-w-2xl lg:py-10">
                 
                 <form action="/alat/updateAlat/<?= $alat['id']; ?>" method="post" enctype="multipart/form-data">
-                    
+                    <input type="hidden" name="gambarLama" value="<?= $alat['gambar']; ?>">
                     <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div class="w-full">
                             <label for="Kode Alat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Alat</label>
 
-                            <input type="text" name="kode_alat" id="kodeAlat" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full disabled <?= (session('validation')) ? 'input-error border-2' : ''; ?> " value="<?=$alat['kode_alat'];?>" disabled readonly>
+                            <input type="text" name="kode_alat" id="kode_alat" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full disabled <?= (session('validation')) ? 'input-error border-2' : ''; ?> " value="<?=$alat['kode_alat'];?>" disabled readonly>
 
                             <?php if (session('validation') && session('validation')->hasError('kode_alat')) :?>
                                 <div class="text-error text-sm">

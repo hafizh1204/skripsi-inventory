@@ -112,6 +112,21 @@
         }
 
 
+        public function hapus() {
+            if ($this->request->isAjax()) {
+                $id = $this->request->getVar('id_proyek');
+
+                $this->proyekModel->delete($id);
+
+                $msg = [
+                    'sukses' => "Data Berhasil Dihapus"
+                ];
+
+                echo json_encode($msg);
+            }
+        }
+
+
 
     }
 

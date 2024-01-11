@@ -32,6 +32,10 @@ class alatModel extends model {
         return $this->where(['status' => $stat])->findAll();
     }
 
+    public function hapusId($id) {
+        return $this->db->table('alat')->delete(['id' => $id]);
+    }
+
     // 
 
 }
