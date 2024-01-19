@@ -14,9 +14,22 @@
         public function data_alat(){
 
 
+            $pageAlat = $this->request->getVar('page_alat') ? $this->request->getVar('page_alat') : 1;
+
+            $cariAlat = $this->request->getVar('keywordCari');
+
+            if ($cariAlat) {
+                $alat = $this->alatModel->search($cariAlat);
+            } else {
+                $alat = $this->alatModel;
+            }
+
             $data = [
                 'title' => 'Data Alat',
-                'alat' => $this->alatModel->getAlat()
+                // 'alat' => $this->alatModel->getAlat(),
+                'alat' => $alat->paginate(5, 'alat'),
+                'pager' => $this->alatModel->pager,
+                'pageAlat' => $pageAlat
             ];
 
             // database connection without model

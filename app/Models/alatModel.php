@@ -36,6 +36,15 @@ class alatModel extends model {
         return $this->db->table('alat')->delete(['id' => $id]);
     }
 
+    public function search($cariAlat) {
+        // $builder = $this->table('alat');
+        // $builder->like('nama_alat', $cariAlat);
+
+        // return $builder;
+
+        return $this->table('alat')->like('nama_alat', $cariAlat)->orLike('kondisi', $cariAlat);
+    }
+
     // 
 
 }

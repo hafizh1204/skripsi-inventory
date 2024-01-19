@@ -8,12 +8,8 @@
         <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
-                <span class="inline-flex items-center text-sm font-medium text-gray-700 ">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2">
-                        <path fill-rule="evenodd" d="M12 6.75a5.25 5.25 0 016.775-5.025.75.75 0 01.313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 011.248.313 5.25 5.25 0 01-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 112.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0112 6.75zM4.117 19.125a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75h-.008a.75.75 0 01-.75-.75v-.008z" clip-rule="evenodd" />
-                        <path d="M10.076 8.64l-2.201-2.2V4.874a.75.75 0 00-.364-.643l-3.75-2.25a.75.75 0 00-.916.113l-.75.75a.75.75 0 00-.113.916l2.25 3.75a.75.75 0 00.643.364h1.564l2.062 2.062 1.575-1.297z" />
-                        <path fill-rule="evenodd" d="M12.556 17.329l4.183 4.182a3.375 3.375 0 004.773-4.773l-3.306-3.305a6.803 6.803 0 01-1.53.043c-.394-.034-.682-.006-.867.042a.589.589 0 00-.167.063l-3.086 3.748zm3.414-1.36a.75.75 0 011.06 0l1.875 1.876a.75.75 0 11-1.06 1.06L15.97 17.03a.75.75 0 010-1.06z" clip-rule="evenodd" />
-                    </svg>
+                <span class="inline-flex gap-2 items-center text-sm font-medium text-gray-700 ">
+                    <i class="fas fa-toolbox fa-lg"></i>
 
                     Data Alat
                 </span>
@@ -81,9 +77,22 @@
             </button>
             </div>
             <?php endif; ?>
-
+            
+            
             <div class="w-full h-fit flex flex-row justify-end gap-x-5">
-                <input type="text" placeholder="cari alat" class="input input-bordered w-72 h-10" />
+                <form action="" method="post">   
+                    <label for="keywordCari" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
+                    <div class="flex flex-row relative">
+                        
+                        <input type="search" id="keywordCari" name="keywordCari" class="block w-96 h-10 p-4 ps-4 text-sm text-gray-900 border border-lime-600 rounded-lg bg-gray-50 focus:ring-lime-500 focus:border-lime-500 " placeholder="Drlling Machine, Compressor,..">
+                        <button type="submit" class="text-white absolute end-2.5 bottom-[0.260rem] hover:bg-slate-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1.5 ">
+                            <svg class="w-5 h-5 text-[#00A500] " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                <!-- <input type="text" placeholder="cari alat" class="input input-bordered w-72 h-10" /> -->
                 <a href="/alat/insertAlat" class="bg-primary-green text-white py-2 px-5 flex flex-row items-center gap-x-3 rounded-lg shadow-md hover:bg-lime-800 hover:shadow-none">
                     <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 1v16M1 9h16"/>
@@ -120,11 +129,6 @@
                         <th scope="col" class="px-6 py-3">
                             <div class="flex items-center">
                                 Brand
-                                <a href="#">
-                                    <svg class="w-3 h-3 ml-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-                                    </svg>
-                                </a>
                             </div>
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -147,7 +151,7 @@
                 </thead>
                 <tbody>
 
-                    <?php $i = 1; ?>
+                    <?php $i = 1 + (5 * ($pageAlat - 1)); ?>
                     <?php foreach ($alat as $alatdjm) : ?>
 
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -167,10 +171,7 @@
                             <img src="/img/<?= $alatdjm['gambar']; ?>" alt="" srcset="" class="aspect-square w-[90px] h-[90px] bg-red-300">
                         </td>
                         <td class="px-6 py-3">
-                            <div class="flex flex-row items-center gap-x-1">
-                                <svg class="w-4 h-4 text-green-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-                                </svg>
+                            <div class="flex flex-row items-center gap-x-1 font-bold ">
                                 <?= $alatdjm['kondisi']; ?>
 
                             </div>
@@ -194,6 +195,10 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+        </div>
+        <div class="my-5 w-full">
+            <?= $pager->links('alat', 'alat_pagination'); ?>
+
         </div>
         
         

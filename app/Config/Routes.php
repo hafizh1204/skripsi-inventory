@@ -14,16 +14,19 @@ $routes->get('/auth/keluar', 'Auth::keluar');
 
 
 $routes->get('/proyek', 'Proyek::data_proyek');
+$routes->post('/proyek', 'Proyek::data_proyek');
 $routes->get('/proyek/(:num)', 'Proyek::detail/$1');
 $routes->get('/proyek/insertProyek', 'Proyek::insertProyek');
 $routes->post('/proyek/simpanInsertProyek', 'Proyek::simpanInsertProyek');
 $routes->post('/proyek/hapus', 'Proyek::hapus');
 $routes->get('/proyek/hapusProyek/(:num)', 'Proyek::hapusProyek/$1');
 $routes->get('/proyek/editProyek/(:num)', 'Proyek::editProyek/$1');
-$routes->post('/proyek/updateProyek', 'Proyek::updateProyek');
+// $routes->post('/proyek/updateProyek', 'Proyek::updateProyek');
+$routes->post('/proyek/updateProyek/(:num)', 'Proyek::updateProyek/$1');
 
 
 $routes->get('/alat', 'Alat::data_alat');
+$routes->post('/alat', 'Alat::data_alat');
 $routes->get('/alat/insertAlat', 'Alat::insertAlat');
 $routes->get('/alat/editAlat/(:segment)', 'Alat::editAlat/$1');
 // $routes->delete('/alat/(:any)', 'Alat::hapusAlat/$1');

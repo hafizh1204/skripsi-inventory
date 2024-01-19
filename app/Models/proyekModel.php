@@ -18,6 +18,16 @@
 
             return $this->where(['id_proyek' => $id_proyek])->first();
         }
+
+
+        public function search($cariProyek) {
+            // $builder = $this->table('alat');
+            // $builder->like('nama_alat', $cariProyek);
+    
+            // return $builder;
+    
+            return $this->table('proyek')->like('nama_po', $cariProyek)->orLike('area', $cariProyek);
+        }
     }
 
 ?>

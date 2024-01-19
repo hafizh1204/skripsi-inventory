@@ -58,9 +58,18 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
                 // dd($this->request->getVar('idAlat'), $this->request->getVar('proyek'));
             }
 
+            $cariPeminjam = $this->request->getVar('keywordCari');
+
+            if ($cariPeminjam) {
+                $pinjam = $this->pinjamModel->search($cariPeminjam);
+            } else {
+                $pinjam = $this->pinjamModel;
+            }
+
             $data = [
                 'title' => 'Data Peminjaman',
                 // 'alat' => $this->alatModel->getAlat(),
+                'pinjam' => $pinjam,
                 'proyeks' => $this->proyekModel->getProyek(),
                 'pinjam' => $result,
                 'cari' => $cari

@@ -14,9 +14,22 @@
 
         public function data_proyek() {
 
+            $pageProyek = $this->request->getVar('page_proyek') ? $this->request->getVar('page_proyek') : 1;
+
+            $cariProyek = $this->request->getVar('keywordCari');
+
+            if ($cariProyek) {
+                $proyek = $this->proyekModel->search($cariProyek);
+            } else {
+                $proyek = $this->proyekModel;
+            }
+
             $data = [
                 'title' => 'Data Proyek',
-                'proyek' => $this->proyekModel->getProyek()
+                // 'proyek' => $this->proyekModel->getProyek()
+                'proyek' => $proyek->paginate(5, 'proyek'),
+                'pager' => $this->proyekModel->pager,
+                'pageProyek' => $pageProyek
             ];
 
 
@@ -46,10 +59,22 @@
         public function simpanInsertProyek() {
             // dd($this->request->getVar('tanggal_mulai'));
 
+            $fileGambar = $this->request->getFile('foto_lokasi');
+
+            if ($fileGambar->getError() == 4) {
+                $namaGambar = 'default_picture.png';
+            } else {
+                $namaGambar = $fileGambar->getRandomName();
+                $fileGambar->move('img', $namaGambar);
+
+                // unlink('img/'. $this->request->getVar('gambarLama'));
+            }
+            
+
             $this->proyekModel->save([
                 'nama_po' => $this->request->getVar('nama_po'),
                 'area' => $this->request->getVar('area'),
-                'foto_lokasi' => $this->request->getVar('foto_lokasi'),
+                'foto_lokasi' => $namaGambar,
                 'tanggal_mulai' => $this->request->getVar('tanggal_mulai'),
                 'tanggal_selesai' => $this->request->getVar('tanggal_selesai')
             ]);
@@ -73,7 +98,7 @@
 
             $data = [
                 'title' => 'Edit Proyek',
-                'alat' => $this->proyekModel->getProyek($id_proyek)
+                'proyek' => $this->proyekModel->getProyek($id_proyek)
             ];
 
             return view('/pages/edit_proyek', $data);
@@ -85,25 +110,26 @@
         public function updateProyek($id_proyek) {
 
 
-            
-            $filefoto_lokasi = $this->request->getFile('foto_lokasi');
-            dd($filefoto_lokasi);
+            // $nama_po = $this->request->getVar('nama_po');
+            // dd($nama_po);
+            $filefoto = $this->request->getFile('foto_lokasi');
+            $fileLama = $this->request->getFile('fotoLama');
+            // dd($filefoto);
 
-            // if ($filefoto_lokasi->getError() == 4) {
-            //     $namafotoLokasi = $this->request->getVar('fotolokasiLama');
-            // } else {
-            //     $namafotoLokasi = $filefoto_lokasi->getRandomName();
-            //     $filefoto_lokasi->move('img', $namafotoLokasi);
+            if ($filefoto->getError() == 4) {
+                $namaGambar = $this->request->getVar('fotoLama');
+            } else {
+                $namaGambar = $filefoto->getRandomName();
+                $filefoto->move('img', $namaGambar);
 
-            //     unlink('img/'. $this->request->getVar('fotolokasiLama'));
-            // }
-
+                // unlink('img/'. $this->request->getVar('gambarLama'));
+            }
 
             $this->proyekModel->save([
                 'id_proyek' => $id_proyek,
                 'nama_po' => $this->request->getVar('nama_po'),
                 'area' => $this->request->getVar('area'),
-                'foto_lokasi' => $this->request->getFile('foto_lokasi'),
+                'foto_lokasi' => $namaGambar,
                 'tanggal_mulai' => $this->request->getVar('tanggal_mulai'),
                 'tanggal_selesai' => $this->request->getVar('tanggal_selesai')
             ]);

@@ -32,6 +32,20 @@
 
             return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->where(['id_peminjam' => $id])->first();
         }
+
+        public function search($cariPeminjam) {
+            // $builder = $this->table('alat');
+            // $builder->like('nama_alat', $cariAlat);
+    
+            // return $builder;
+            if ($cariPeminjam == false){
+                return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->findAll();
+            }
+
+            return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->where(['id_peminjam' => $cariPeminjam])->first();
+    
+            return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->table('peminjaman')->like('nama_alat', $cariPeminjam)->orLike('proyek', $cariPeminjam);
+        }
     }
 
 ?>
