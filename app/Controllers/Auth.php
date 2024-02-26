@@ -56,11 +56,11 @@ class Auth extends BaseController
                 session()->set('password', $cek['password']);
                 session()->set('level', $cek['level']);
 
-                return redirect()->to(base_url('alat'));
+                return redirect()->to(base_url('pages'));
             } else {
 
                 session()->setFlashdata('pesan', 'login gagal, periksa kembali username dan password');
-                return redirect()->to(base_url('auth/login'));
+                return redirect()->to(base_url('/'));
 
             }
             

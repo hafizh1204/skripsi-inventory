@@ -27,7 +27,7 @@
         
         <h4 class="text-2xl font-bold dark:text-white">Ubah Data Alat</h4>
 
-        <section class="bg-white dark:bg-gray-900">
+        <section class="bg-white flex flex-row justify-between">
             <div class="py-8 px-4 max-w-2xl lg:py-10">
                 
                 <form action="/alat/updateAlat/<?= $alat['id']; ?>" method="post" enctype="multipart/form-data">
@@ -36,7 +36,7 @@
                         <div class="w-full">
                             <label for="Kode Alat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Alat</label>
 
-                            <input type="text" name="kode_alat" id="kode_alat" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full disabled <?= (session('validation')) ? 'input-error border-2' : ''; ?> " value="<?=$alat['kode_alat'];?>" disabled readonly>
+                            <input type="text" name="kode_alat" id="kode_alat" class="max-w-xs ring-1 ring-gray-300 focus:ring-offset-1 text-gray-400 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full disabled <?= (session('validation')) ? 'input-error border-2' : ''; ?> " value="<?=$alat['kode_alat'];?>" disabled readonly>
 
                             <?php if (session('validation') && session('validation')->hasError('kode_alat')) :?>
                                 <div class="text-error text-sm">
@@ -88,6 +88,19 @@
                         </button>
                     </div>    
                 </form>
+            </div>
+            <div class="py-8 w-[400px]">
+                <div class="p-4 bg-green-50 text-green-600 rounded-md border-2 border-green-300">
+                    <h1 class="text-xl font-semibold mb-2">Petunjuk Pengisian</h1>
+                    <ul class="flex flex-col gap-y-1 px-4 text-base" style="list-style-type:disc">
+                        <li>Untuk edit alat <b>Pengisian kode alat dinonaktifkan</b></li>
+                        <li>Kolom nama alat untuk pengisian nama alat</li>
+                        <li>Kolom brand untuk identifikasi merek alat tersebut</li>
+                        <li>Kolom kondisi alat untuk memilih kondisi alat</li>
+                        <li>Kolom gambar untuk mengunggah gambar atau foto dari alat</li>
+                        <li>Kolom keterangan untuk menambahkan detail spesifikasi alat</li>
+                    </ul>
+                </div>
             </div>
         </section>
 

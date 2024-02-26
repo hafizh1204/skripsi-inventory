@@ -3,26 +3,27 @@
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white ">
         <ul class="space-y-2 font-medium">
+            
             <li>
-                <a href="<?= base_url('/pages'); ?> " class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-100 group">
+                <a href="<?= base_url('/pages'); ?> " class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 active:bg-gray-100 group <?= $menu == 'dashboard' ? 'bg-[#00A500] py-3 pl-3 hover:bg-lime-800 text-white':'' ?>" >
                 <i class="fas fa-desktop fa-xl"></i>
                 <span class="ml-3">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="<?= base_url('/alat'); ?>" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="<?= base_url('/alat'); ?>" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group <?= $menu == 'alat' ? 'bg-[#00A500] py-3 pl-3 hover:bg-lime-800 text-white':'' ?>">
                 <i class="fas fa-toolbox fa-xl"></i>
                 <span class="flex-1 ml-3 whitespace-nowrap">Data Alat</span>
                 </a>
             </li>
             <li>
-                <a href="<?= base_url('/proyek'); ?>" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="<?= base_url('/proyek'); ?>" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group <?= $menu == 'proyek' ? 'bg-[#00A500] py-3 pl-3 hover:bg-lime-800 text-white':'' ?>">
                 <i class="fa-solid fa-table-list fa-xl"></i>
                 <span class="flex-1 ml-3 whitespace-nowrap">Data Proyek/PO</span>
                 </a>
             </li>
             <li>
-                <a href="<?= base_url('/pinjam/pinjam_alat'); ?>" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="<?= base_url('/pinjam/pinjam_alat'); ?>" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group <?= $menu == 'pinjam' ? 'bg-[#00A500] py-3 pl-3 hover:bg-lime-800 text-white':'' ?>">
                 <i class="fa-solid fa-screwdriver-wrench fa-xl"></i>
                 <span class="flex-1 ml-3 whitespace-nowrap">Peminjaman Alat</span>
                 </a>

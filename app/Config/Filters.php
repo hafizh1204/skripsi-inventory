@@ -45,7 +45,7 @@ class Filters extends BaseConfig
             // pedoman routes
             'loginFilter' => [
                 'except' => [
-                    '/proyek', '/proyek/*', '/proyek/insertProyek', '/proyek/simpanInsertProyek', '/proyek/hapusProyek/*', '/proyek/editProyek/*', '/proyek/updateProyek/*', '/alat', '/alat/insertAlat', '/alat/editAlat/*', '/alat/*', 'alat/simpanAlat', 'alat/updateAlat/*', 'hapus/hapusAlat/*', '/alat/*', '/pinjam/pinjam_alat', '/pinjam/pinjam_alat', '/alat/pinjam_alat', '/pinjam/hapusPinjam/*', '/auth/keluar','/pages'
+                    '/proyek', '/proyek/*', '/proyek/insertProyek', '/proyek/simpanInsertProyek', '/proyek/hapusProyek/*', '/proyek/editProyek/*', '/proyek/updateProyek/*', '/alat', '/alat/insertAlat', '/alat/editAlat/*', '/alat/*', 'alat/simpanAlat', 'alat/updateAlat/*', 'hapus/hapusAlat/*', '/alat/*', '/pinjam/pinjam_alat', '/pinjam/pinjam_alat', '/alat/pinjam_alat', '/pinjam/hapusPinjam/*', '/auth/keluar','/pages', '/alat/getAlat/*'
                 ]
             ],
 

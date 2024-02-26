@@ -28,8 +28,12 @@ class alatModel extends model {
         return $this->where(['id' => $id])->first();
     }
 
-    public function getAlatByStat($stat) {
-        return $this->where(['status' => $stat])->findAll();
+    public function getAlatByStat($stat, $search = false) {
+        if ($search == false) {
+            return $this->where(['status' => $stat])->findAll();
+        } else {
+            return $this->where(['status' => $stat])->like('nama_alat', $search)->findAll();
+        }
     }
 
     public function hapusId($id) {

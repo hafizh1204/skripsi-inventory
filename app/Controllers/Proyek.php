@@ -25,6 +25,7 @@
             }
 
             $data = [
+                'menu' => 'proyek',
                 'title' => 'Data Proyek',
                 // 'proyek' => $this->proyekModel->getProyek()
                 'proyek' => $proyek->paginate(5, 'proyek'),
@@ -39,6 +40,7 @@
 
         public function detail($id_proyek) {
             $data = [
+                'menu' => 'proyek',
                 'title' => 'Detail Proyek',
                 'proyek' => $this->proyekModel->getProyek($id_proyek)
             ];
@@ -49,6 +51,7 @@
 
         public function insertProyek() {
             $data = [
+                'menu' => 'proyek',
                 'title' => 'Input Proyek Baru',
                 'proyek' => $this->proyekModel->getProyek()
             ];
@@ -73,6 +76,7 @@
 
             $this->proyekModel->save([
                 'nama_po' => $this->request->getVar('nama_po'),
+                'koordinator' => $this->request->getVar('koordinator'),
                 'area' => $this->request->getVar('area'),
                 'foto_lokasi' => $namaGambar,
                 'tanggal_mulai' => $this->request->getVar('tanggal_mulai'),
@@ -97,6 +101,7 @@
         public function editProyek($id_proyek) {
 
             $data = [
+                'menu' => 'proyek',
                 'title' => 'Edit Proyek',
                 'proyek' => $this->proyekModel->getProyek($id_proyek)
             ];
@@ -128,6 +133,7 @@
             $this->proyekModel->save([
                 'id_proyek' => $id_proyek,
                 'nama_po' => $this->request->getVar('nama_po'),
+                'koordinator' => $this->request->getVar('koordinator'),
                 'area' => $this->request->getVar('area'),
                 'foto_lokasi' => $namaGambar,
                 'tanggal_mulai' => $this->request->getVar('tanggal_mulai'),

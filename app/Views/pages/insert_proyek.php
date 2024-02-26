@@ -32,18 +32,25 @@
                 
                 <form action="/proyek/simpanInsertProyek" method="post" enctype="multipart/form-data">
                     <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+
+                        
                         
                         <div class="w-full">
-                            <label for="Nama_po" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Proyek</label>
+                            <label for="Nama_po" class="block mb-2 text-sm font-medium text-gray-900 ">Nama Proyek</label>
                             <input type="text" name="nama_po" id="namaPo" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 w-full" placeholder="ketik disini" value="<?= old('nama_alat'); ?>">
                         </div>
                         <div class="w-full">
-                            <label for="area" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Area Proyek</label>
+                            <label for="area" class="block mb-2 text-sm font-medium text-gray-900 ">Area Proyek</label>
                             <input type="text" name="area" id="area" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 w-full" placeholder="ketik disini" value="<?= old('area'); ?>">
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label for="koordinator" class="block mb-2 text-sm font-medium text-gray-900 ">koordinator</label>
+                            <input type="text" name="koordinator" id="koordinator" class="max-w-xs min-w-full ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 w-full" placeholder="ketik disini" value="<?= old('koordinator'); ?>">
                         </div>
                         
                         <div class="w-full">
-                            <label for="tanggal_mulai" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Mulai</label>
+                            <label for="tanggal_mulai" class="block mb-2 text-sm font-medium text-gray-900 ">Tanggal Mulai</label>
                             <div class="relative max-w-sm">
                                 
                                 <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="px-3 text-gray-600 max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full">
@@ -51,7 +58,7 @@
 
                         </div>
                         <div class="w-full">
-                            <label for="tanggal_selesai" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Selesai</label>
+                            <label for="tanggal_selesai" class="block mb-2 text-sm font-medium text-gray-900 ">Tanggal Selesai</label>
                             <div class="relative max-w-sm">
                                 
                                 <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="px-3 text-gray-600 max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 py-2.5 w-full">
@@ -61,7 +68,7 @@
 
 
                         <div class="sm:col-span-2">
-                            <label for="foto_lokasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Foto Lokasi</label>
+                            <label for="foto_lokasi" class="block mb-2 text-sm font-medium text-gray-900 ">Foto Lokasi</label>
 
                             <div class="w-full flex flex-row items-center custom-file ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 rounded-md">
                                 <input class="file-input file-input-[#00A500] h-full w-full max-w-xs" aria-describedby="foto_lokasi" name="foto_lokasi" id="foto_lokasi" type="file">

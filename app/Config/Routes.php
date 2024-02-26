@@ -9,7 +9,7 @@ $routes->get('/', 'Auth::index');
 $routes->get('/pages', 'Pages::index');
 $routes->get('/login', 'Auth::login');
 $routes->post('auth/cekLogin', 'Auth::cekLogin');
-$routes->get('auth/login', 'Auth::login');
+// $routes->get('auth/login', 'Auth::login');
 $routes->get('/auth/keluar', 'Auth::keluar');
 
 
@@ -35,6 +35,7 @@ $routes->post('alat/updateAlat/(:num)', 'Alat::updateAlat/$1');
 $routes->post('alat/hapus', 'Alat::hapus');
 $routes->get('/alat/hapusAlat/(:num)', 'Alat::hapusAlat/$1');
 $routes->get('/alat/(:any)', 'Alat::detail/$1');
+$routes->get('/alat/getAlat/(:num)', 'Alat::getAlat/$1');
 
 $routes->get('/pinjam/pinjam_alat', 'Pinjam::pinjam_alat');
 $routes->post('/pinjam/pinjam_alat', 'Pinjam::pinjam_alat');

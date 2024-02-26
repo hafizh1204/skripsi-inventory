@@ -6,7 +6,9 @@
         public function index()  {
 
             $data = [
-                'title' => 'Dashboard|DJM Inventory' 
+                'menu' => 'dashboard',
+                'title' => 'Dashboard|DJM Inventory',
+                'active' => 'dashboard'
             ];
             
             return view('pages/dashboard', $data);

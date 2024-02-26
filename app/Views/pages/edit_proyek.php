@@ -38,9 +38,15 @@
                             <label for="Nama_po" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Proyek</label>
                             <input type="text" name="nama_po" id="namaPo" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 w-full" placeholder="ketik disini" value="<?= $proyek['nama_po']; ?>">
                         </div>
+                        
                         <div class="w-full">
                             <label for="area" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Area Proyek</label>
                             <input type="text" name="area" id="area" class="max-w-xs ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 w-full" placeholder="ketik disini" value="<?= $proyek['area']; ?>">
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label for="koordinator" class="block mb-2 text-sm font-medium text-gray-900 ">koordinator</label>
+                            <input type="text" name="koordinator" id="koordinator" class="max-w-xs min-w-full ring-1 ring-primary-green focus:ring-offset-1 focus:ring-primary-green focus:ring-2 focus:bg-white rounded-md bg-gray-50 w-full" placeholder="ketik disini" value="<?= $proyek['koordinator'] ?>">
                         </div>
                         
                         <div class="w-full">

@@ -25,6 +25,7 @@
             }
 
             $data = [
+                'menu' => 'alat',
                 'title' => 'Data Alat',
                 // 'alat' => $this->alatModel->getAlat(),
                 'alat' => $alat->paginate(5, 'alat'),
@@ -51,6 +52,7 @@
             // echo $kode_alat;
             
             $data = [
+                'menu' => 'alat',
                 'title' => 'Detail Alat',
                 'alat' => $this->alatModel->getAlat($kode_alat)
             ];
@@ -62,6 +64,7 @@
             // session();
 
             $data = [
+                'menu' => 'alat',
                 'title' => 'Tambah Alat',
                 'validation' => \Config\Services::validation()
             ];
@@ -136,10 +139,6 @@
 
         public function hapusAlat($id){
             session();
-            
-            
-
-
 
             $this->alatModel->hapusId($id);
 
@@ -152,15 +151,19 @@
         public function editAlat($id) {
 
             $data = [
+                'menu' => 'alat',
                 'title' => 'Edit Alat',
                 'validation' => \Config\Services::validation(),
                 'alat' => $this->alatModel->getId($id)
             ];
 
             return view('pages/edit_alat', $data);
+        }
 
-
-
+        // get json encode alat
+        public function getAlat($id) {
+            return json_encode($this->alatModel->getId($id));
+            // dd($this->alatModel->getAlat($id));
         }
 
 

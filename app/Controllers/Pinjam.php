@@ -29,18 +29,41 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 
         public function pinjam_alat() {
 
+            $cariPeminjam = $this->request->getVar('keywordCari');
+
             if(isset($_GET['cari'])) {
                 $cari = $_GET['cari'];
 
-                if ($cari == 0) {
+                if ($cari == 0 && $cariPeminjam == null) {
                     $result = $this->pinjamModel->getAllPeminjaman();
-                } else {
+                } else if ($cari == 0 && $cariPeminjam != null) {
+                    $result = $this->pinjamModel->getAllPeminjaman($cariPeminjam);
+                } else if ($cari == 1 && $cariPeminjam == null) {
                     $result = $this->alatModel->getAlatByStat($cari);
+                } else if ($cari == 1 && $cariPeminjam != null) {
+                    $result = $this->alatModel->getAlatByStat($cari, $cariPeminjam);
                 }
             } else {
-                $result = $this->pinjamModel->getAllPeminjaman();
+                if ($cariPeminjam == null) {
+                    $result = $this->pinjamModel->getAllPeminjaman();
+                } else if ($cariPeminjam != null) {
+                    $result = $this->pinjamModel->getAllPeminjaman($cariPeminjam);
+                } 
+                // $result = $this->pinjamModel->getAllPeminjaman();
                 $cari = 0;
             }
+            // if(isset($_GET['cari'])) {
+            //     $cari = $_GET['cari'];
+
+            //     if ($cari == 0) {
+            //         $result = $this->pinjamModel->getAllPeminjaman();
+            //     } else {
+            //         $result = $this->alatModel->getAlatByStat($cari);
+            //     }
+            // } else {
+            //     $result = $this->pinjamModel->getAllPeminjaman();
+            //     $cari = 0;
+            // }
 
             if(isset($_POST['btnSubmit'])){
                 $this->pinjamModel->save([
@@ -58,18 +81,23 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
                 // dd($this->request->getVar('idAlat'), $this->request->getVar('proyek'));
             }
 
-            $cariPeminjam = $this->request->getVar('keywordCari');
+            // $cariPeminjam = $this->request->getVar('keywordCari');
 
-            if ($cariPeminjam) {
-                $pinjam = $this->pinjamModel->search($cariPeminjam);
-            } else {
-                $pinjam = $this->pinjamModel;
-            }
+            // if ($cariPeminjam) {
+            //     $proyek = $this->proyekModel->search($cariPeminjam);
+            //     $alat = $this->alatModel->search($cariPeminjam);
+            // } else {
+            //     $proyek = $this->pinjamModel;
+            //     $alat = $this->alatModel;
+            // }
 
             $data = [
+                'menu' => 'pinjam',
                 'title' => 'Data Peminjaman',
                 // 'alat' => $this->alatModel->getAlat(),
-                'pinjam' => $pinjam,
+                // 'pinjam' => $pinjam,
+                // 'proyek' => $proyek,
+                // 'alat' => $alat,
                 'proyeks' => $this->proyekModel->getProyek(),
                 'pinjam' => $result,
                 'cari' => $cari
@@ -86,7 +114,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 
         public function hapusPinjam($id){
             // operasi
-            $getIdAlat = $this->pinjamModel->getAllPeminjaman($id);
+            $getIdAlat = $this->pinjamModel->getAllPeminjaman(false, $id);
             // dd($getIdAlat);
             // dd($this->alatModel->getId($getIdAlat['id']));
             $idAlat = $getIdAlat['id'];

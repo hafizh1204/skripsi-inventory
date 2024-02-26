@@ -19,18 +19,24 @@
         }
 
 
-        public function getAllpeminjaman($id = false) {
+        public function getAllpeminjaman($search = false, $id = false) {
             // $builder = $this->db->table('peminjaman');
             // $builder->join('peminjaman', 'peminjaman.id_peminjam = alat.kode_alat');
             // $query = $builder->get();
 
             // return $query->getResult();
 
-            if ($id == false){
+            if ($id == false && $search == false){
                 return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->findAll();
+            } else if ($id == false && $search != null){
+                return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->like('nama_alat', $search)->orLike('nama_po', $search)->findAll();
             }
 
-            return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->where(['id_peminjam' => $id])->first();
+            if ($search == false) {
+                return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->where(['id_peminjam' => $id])->first();
+            } else {
+                return $this->join('alat', 'alat.id = peminjaman.id_alat')->join('proyek', 'proyek.id_proyek = peminjaman.id_proyek')->where(['id_peminjam' => $id])->like('nama_alat', $search)->orLike('nama_po', $search)->first();
+            }
         }
 
         public function search($cariPeminjam) {

@@ -114,6 +114,9 @@
                             nama proyek
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Koordinator
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             area
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -146,6 +149,9 @@
                         </td>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <?= $proyekdjm['nama_po']; ?>
+                        </th>
+                        <th scope="row" class="px-6 py-3 text-base">
+                            <?= $proyekdjm['koordinator']; ?>
                         </th>
                         <td class="px-6 py-3">
                             <?= $proyekdjm['area']; ?>
@@ -181,9 +187,6 @@
         </div>
         
         
-        
-        
-        
     </div>
 </div>
 
@@ -193,12 +196,13 @@
     function hapus(id_proyek) {
         Swal.fire ({
             title: 'apakah anda yakin?',
-            text: `akan menghapus alat ini`,
+            text: `akan menghapus proyek ini`,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yakin'  
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yakin',
+            cancelButtonText:  'Batal'
         }).then((result) => {
             if (result.value) {
                 $.ajax({
